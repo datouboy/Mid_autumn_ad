@@ -1,0 +1,31 @@
+//***********函数类**************
+
+//垂直居中
+.LineHeight(@height:1px) {
+  height: @height;
+  line-height: @height;
+}
+
+//垂直居中并内容水平居中
+.LineHeightCenter(@height:1px) {
+  text-align: center;
+  height: @height;
+  line-height: @height;
+}
+
+//宽高
+.WidthHeight(@width:1px,@height:1px) {
+  width: @width;
+  height: @height;
+}
+
+//透明度
+.Opacity(@opacity:1){
+    @opacityPercentage: @opacity * 100;
+    filter: ~"alpha(opacity = (@{opacityPercentage}))";
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=(@{opacityPercentage}))";
+    -moz-opacity: @opacity;
+    -khtml-opacity: @opacity;
+    opacity: @opacity;
+    zoom: 1;
+}
