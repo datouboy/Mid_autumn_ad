@@ -43,7 +43,8 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    '<%= config.dist %>/css/common.css': '<%= config.src %>/less/common.less'
+                    '<%= config.dist %>/css/common.css': '<%= config.src %>/less/common.less',
+                    '<%= config.dist %>/css/pace-theme-loading-bar.tmpl.css': '<%= config.src %>/less/pace-theme-loading-bar.tmpl.css'
                 }
             },
             Dest: {
@@ -54,7 +55,8 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    '<%= config.dist %>/css/common.css': '<%= config.src %>/less/common.less'
+                    '<%= config.dist %>/css/common.css': '<%= config.src %>/less/common.less',
+                    '<%= config.dist %>/css/pace-theme-loading-bar.tmpl.css': '<%= config.src %>/less/pace-theme-loading-bar.tmpl.css'
                 }
             }
         },
@@ -62,7 +64,9 @@ module.exports = function(grunt) {
             main: {
                 files: [
                     { expand: true, cwd: '<%= config.src %>/', src: ['*.html','*.js'], dest: '<%= config.dist %>/', filter: 'isFile' },
-                    { expand: true, cwd: '<%= config.src %>/images/', src: ['**'], dest: '<%= config.dist %>/images/' }
+                    { expand: true, cwd: '<%= config.src %>/images/', src: ['**'], dest: '<%= config.dist %>/images/' },
+                    { expand: true, cwd: '<%= config.src %>/js/', src: ['*.min.js'], dest: '<%= config.dist %>/js/', filter: 'isFile' },
+                    { expand: true, cwd: '<%= config.src %>/css/', src: ['**'], dest: '<%= config.dist %>/css/' }
                 ]
             },
             html: {
@@ -73,6 +77,16 @@ module.exports = function(grunt) {
             images: {
                 files: [
                     { expand: true, cwd: '<%= config.src %>/images/', src: ['**'], dest: '<%= config.dist %>/images/' }
+                ]
+            },
+            jsCopy: {
+                files: [
+                    { expand: true, cwd: '<%= config.src %>/js/', src: ['*.min.js'], dest: '<%= config.dist %>/js/', filter: 'isFile' }
+                ]
+            },
+            css: {
+                files: [
+                    { expand: true, cwd: '<%= config.src %>/css/', src: ['**'], dest: '<%= config.dist %>/css/' }
                 ]
             }
         },
@@ -95,9 +109,23 @@ module.exports = function(grunt) {
                     livereload: true
                 }
             },
+            jsCopy: {
+                files: ['<%= config.src %>/js/*.min.js'],
+                tasks: ['copy:jsCopy'],
+                options: {
+                    livereload: true
+                }
+            },
             less: {
                 files: ['<%= config.src %>/less/common.less'],
                 tasks: ['less:Live'],
+                options: {
+                    livereload: true
+                }
+            },
+            css: {
+                files: ['<%= config.src %>/css/**'],
+                tasks: ['copy:css'],
                 options: {
                     livereload: true
                 }

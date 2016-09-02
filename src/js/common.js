@@ -1,0 +1,32 @@
+setTimeout(function(){
+    animation_step1();
+},30)
+
+function animation_step1(){
+    $("#step1_chang_e").addClass("show");
+    $("#step1_chang_e_node").addClass("show");
+    $("#step1_wenzi").addClass("show");
+    setTimeout(function(){
+        $("#step1_moon_where").addClass("show");
+        $("#step1_yun").addClass("show");
+        $("#step1_sui").addClass("show");
+        setTimeout(function(){
+            $("#step1_shi_1").addClass("show");
+            setTimeout(function(){
+                $("#step1_shi_2").addClass("show");
+                setTimeout(function(){
+                    $("#step1_shi_3").addClass("show");
+                    setTimeout(function(){
+                        $("#step1_dian").addClass("show");
+                        setTimeout(function(){
+                            $("#step1_where").addClass("show");
+                            setTimeout(function(){
+                                $("#step1_fangda").addClass("show");
+                            },1000);
+                        },1000);
+                    },1000);
+                },300);
+            },300);
+        },700);
+    },200);
+}

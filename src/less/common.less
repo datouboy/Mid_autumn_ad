@@ -3,8 +3,246 @@
 @import (inline) "import/resetCss.css";
 
 body {
-    &.lading {
+    background: #00c5f7 url("../images/bg_common_page.gif") left top repeat;
+    background-size: 100%;
+    /* &.pace-running {
         background: #fffb00 url("../images/bg_lading_page.gif") left top repeat;
-        background-size: 4px;
+        background-size: 318px * 0.45;
+    } 
+    &.pace-done {
+    }*/
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        display: block;
+        position: absolute;
+
+        &.hidden {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        &.z1 {
+            z-index: 1;
+        }
+        &.z2 {
+            z-index: 2;
+        }
+
+        &.lvdiLogo {
+            right: 3px;
+            top: 3px;
+            background: url("../images/logo_lvdi.png") no-repeat;
+            background-size: cover;
+        }
+
+        &.previous {
+            left: 18px;
+            top: 22px;
+            background: url("../images/left.png") no-repeat;
+            background-size: cover;
+        }
+
+        &.musicMenu {
+            right: 18px;
+            top: 22px;
+            background: url("../images/music.png") no-repeat;
+            background-size: cover;
+        }
+
+        &.logoBlack {
+            right: 10px;
+            bottom: 10px;
+            background: url("../images/logo_black.png") no-repeat;
+            background-size: 100%;
+        }
+        //底部文字
+        &#step1_wenzi {
+            transform: translateY(-100%);
+
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity .5s, transform .5s;
+            }
+        }
+        //嫦娥动画
+        &#step1_chang_e {
+            transform: translateY(-100%);
+
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity .5s, transform .5s;
+                animation: step1_chang_e_animation 5s infinite;
+            }
+        }
+        @keyframes step1_chang_e_animation {
+            0%   {top:5%;}
+            50%  {top:4%;}
+            100% {top:5%;}
+        }
+        //嫦娥标签
+        &#step1_chang_e_node {
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transition: opacity .5s;
+                animation: step1_chang_e_node_animation 5s infinite;
+            }
+        }
+        @keyframes step1_chang_e_node_animation {
+            0%   {top:20%; width: 15%;}
+            50%  {top:19%; width: 17%;}
+            100% {top:20%; width: 15%;}
+        }
+        //漂浮英文
+        &#step1_moon_where {
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transition: opacity .5s;
+                animation: step1_moon_where_animation 5s infinite;
+            }
+        }
+        @keyframes step1_moon_where_animation {
+            0%   {top:13%;}
+            50%  {top:14%;}
+            100% {top:13%;}
+        }
+        //云朵
+        &#step1_yun {
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transition: opacity .5s;
+                animation: step1_yun_animation 5s infinite;
+            }
+        }
+        @keyframes step1_yun_animation {
+            0%   {top:22%;}
+            50%  {top:23%;}
+            100% {top:22%;}
+        }
+        //其它漂浮物
+        &#step1_sui {
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transition: opacity .5s;
+                animation: step1_sui_animation 5s infinite;
+            }
+        }
+        @keyframes step1_sui_animation {
+            0%   {top:29%;}
+            50%  {top:28%;}
+            100% {top:29%;}
+        }
+
+        //诗句1
+        &#step1_shi_1 {
+            transform: translateY(100%);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity .5s, transform .5s;
+            }
+        }
+        //诗句2
+        &#step1_shi_2 {
+            transform: translateY(100%);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity .5s, transform .5s;
+            }
+        }
+        //诗句3
+        &#step1_shi_3 {
+            transform: translateY(100%);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity .5s, transform .5s;
+            }
+        }
+        //点点点
+        &#step1_dian {
+            transform: translateY(100%) scale(3);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                transition: opacity 1s, transform 1s;
+            }
+        }
+        //明月在哪里？
+        &#step1_where {
+            transform: translateY(100%) scale(3);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                transition: opacity 1s, transform 1s;
+                animation: step1_where_animation 5s infinite;
+            }
+        }
+        @keyframes step1_where_animation {
+            0%   {transform: scale(1);}
+            40%   {transform: scale(1.2);}
+            50%  {transform: scale(1);}
+            60%   {transform: scale(1);}
+            100% {transform: scale(1);}
+        }
+        //放大镜
+        &#step1_fangda {
+            transform: translateY(100%) scale(3);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                transition: opacity 1s, transform 1s;
+                animation: step1_fangda_animation 5s infinite;
+            }
+        }
+        @keyframes step1_fangda_animation {
+            0%   {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
+            40%   {transform: scale(2); left: 40%; top: 32%; opacity: 0.9;}
+            50%  {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
+            60%   {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
+            100% {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
+        }
+    }
+
+    .mainScene {
+        width: 100%;
+        height: 100%;
+    }
+
+    
+    .ladingPage {
+        width: 100%;
+        height: 100%;
+        background: #fffb00 url("../images/bg_lading_page.gif") left top repeat;
+        background-size: 318px * 0.45;
+        transform: translateY(0);
+        transition: transform .3s;
+
+        &.comeUp {
+            transform: translateY(100%);
+            transition: transform .3s;
+        }
     }
 }
