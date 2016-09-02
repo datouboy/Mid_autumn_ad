@@ -7,32 +7,53 @@
     <!-- <script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
     <link rel="stylesheet" href="./css/pace-theme-loading-bar.tmpl.css" /> -->
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/swiper-3.3.1.min.css">
+    <!-- <link rel="stylesheet" href="./css/swiper-3.3.1.min.css"> -->
     <link rel="stylesheet" href="./css/common.css" />
 </head>
 <body>
     <div class="page">
         <div class="mainScene">
             <!--固定元素-->
-            <img class="lvdiLogo" src="../images/logo_lvdi.png" width="43" height="13" />
-            <img class="previous" src="../images/empty.png" width="22" height="22" />
-            <img class="musicMenu" src="../images/empty.png" width="22" height="22" />
-            <img class="logoBlack" src="../images/empty.png" width="50" height="20" />
-            <!--活动元素-->
-            <img id="step1_wenzi" class="z1 hidden" src="../images/step1_wenzi.png" width="28%" style="left:5%; bottom:2%;" />
-            <img id="step1_chang_e" class="z2 hidden" src="../images/step1_chang_e.png" width="43%" style="left:22%; top:5%;" />
-            <img id="step1_chang_e_node" class="z2 hidden" src="../images/step1_chang_e_node.png" width="15%" style="left:55%; top:20%;" />
-            <img id="step1_moon_where" class="z2 hidden" src="../images/step1_moon_where.png" width="85%" style="left:10%; top:13%;" />
-            <img id="step1_yun" class="z2 hidden" src="../images/step1_yun.png" width="90%" style="left:3%; top:22%;" />
-            <img id="step1_sui" class="z2 hidden" src="../images/step1_sui.png" width="85%" style="left:5%; top:29%;" />
+            <img id="lvdiLogo" class="lvdiLogo" src="../images/logo_lvdi.png" width="43" height="13" />
+            <img id="previous" class="previous" src="../images/empty.png" width="22" height="22" />
+            <img id="musicMenu" class="musicMenu" src="../images/empty.png" width="22" height="22" />
+            <img id="logoBlack" class="logoBlack" src="../images/empty.png" width="50" height="20" />
+            <div class="step1" id="step1">
+                <img id="step1_wenzi" class="z1 hidden" src="../images/step1_wenzi.png" width="28%" style="left:5%; bottom:2%;" />
+                <img id="step1_chang_e" class="z2 hidden" src="../images/step1_chang_e.png" width="43%" style="left:22%; top:5%;" />
+                <img id="step1_chang_e_node" class="z2 hidden" src="../images/step1_chang_e_node.png" width="15%" style="left:55%; top:20%;" />
+                <img id="step1_moon_where" class="z2 hidden" src="../images/step1_moon_where.png" width="85%" style="left:10%; top:13%;" />
+                <img id="step1_yun" class="z2 hidden" src="../images/step1_yun.png" width="90%" style="left:3%; top:22%;" />
+                <img id="step1_sui" class="z2 hidden" src="../images/step1_sui.png" width="85%" style="left:5%; top:29%;" />
 
-            <img id="step1_shi_1" class="z1 hidden" src="../images/step1_shi_1.png" width="56%" style="left:22%; top:27%;" />
-            <img id="step1_shi_2" class="z1 hidden" src="../images/step1_shi_2.png" width="56%" style="left:22%; top:35.3%;" />
-            <img id="step1_shi_3" class="z1 hidden" src="../images/step1_shi_3.png" width="56%" style="left:22%; top:43%;" />
-            
-            <img id="step1_dian" class="z2 hidden" src="../images/step1_dian.png" width="21%" style="left:35%; top:52%;" />
-            <img id="step1_where" class="z1 hidden" src="../images/step1_where.png" width="80%" style="left:10%; top:55%;" />
-            <img id="step1_fangda" class="z2 hidden" src="../images/step1_fangda.svg" width="38%" style="left:60%; top:52%;" />
+                <img id="step1_shi_1" class="z1 hidden" src="../images/step1_shi_1.png" width="56%" style="left:22%; top:27%;" />
+                <img id="step1_shi_2" class="z1 hidden" src="../images/step1_shi_2.png" width="56%" style="left:22%; top:35.3%;" />
+                <img id="step1_shi_3" class="z1 hidden" src="../images/step1_shi_3.png" width="56%" style="left:22%; top:43%;" />
+                
+                <img id="step1_dian" class="z2 hidden" src="../images/step1_dian.png" width="21%" style="left:35%; top:52%;" />
+                <img id="step1_where" class="z1 hidden" src="../images/step1_where.png" width="80%" style="left:10%; top:55%;" />
+                <img id="step1_fangda" class="z2 hidden" src="../images/step1_fangda.svg" width="38%" style="left:60%; top:52%;" />
+            </div>
+            <div class="step2" id="step2">
+                <div id="drag_up_fun"></div>
+                <img id="step2_fang_top" class="z1 hidden" src="../images/step2_fang_top.png" width="100%" style="left:0; top:2%;" />
+                <img id="step2_fang_bottom" class="z1 hidden" src="../images/step2_fang_bottom.png" width="100%" style="left:0; bottom:5%;" />
+                <img id="step2_text_1" class="z1 hidden" src="../images/step2_text_1.png" width="80%" style="left:10%; top:5.5%;" />
+                <img id="step2_text_2" class="z1 hidden" src="../images/step2_text_2.png" width="80%" style="left:17%; top:16%;" />
+                <img id="step2_text_3" class="z1 hidden" src="../images/step2_text_3.png" width="70%" style="left:5%; top:21%;" />
+                <img id="step2_text_4" class="z1 hidden" src="../images/step2_text_4.png" width="45%" style="left:5%; top:30%;" />
+                <img id="step2_text_5" class="z1 hidden" src="../images/step2_text_5.png" width="45%" style="left:50%; top:32%;" />
+                <div id="step2_libai_box" style="position: absolute; width:40%; height:50%; right:1%; bottom:6%;">
+                    <img id="step2_libai" class="z1 hidden" src="../images/step2_libai.png" width="100%" />
+                    <img id="step2_libai_yan" class="z1 hidden" src="../images/step2_libai_yan.svg" width="10%" style="left:28%; top:3%;" />
+                    <img id="step2_libai_han" class="z1 hidden" src="../images/step2_libai_han.svg" width="7%" style="left:38%; top:4%;" />
+                </div>
+                <div id="drag_up_box" class="drag_up_box" style="position: absolute; width:8%; left:28%; bottom: 54%;">
+                    <img id="drag_up" class="z1" src="../images/left.png" width="100%" />
+                    <span id="drag_up_text">向上拉</span>
+                </div>
+                <!-- <img id="step2_next" class="z1 hidden" src="../images/next.png" width="10%" style="left:45%; bottom:4%;" /> -->
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
