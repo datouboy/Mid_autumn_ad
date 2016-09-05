@@ -123,6 +123,30 @@ body {
           background-size: cover;
   z-index: 2000;
 }
+.page img.musicMenu.show_loop {
+  -webkit-animation: musicMenu_animation 5s linear infinite;
+          animation: musicMenu_animation 5s linear infinite;
+}
+@-webkit-keyframes musicMenu_animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes musicMenu_animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 .page img.logoBlack {
   right: 10px;
   bottom: 10px;
@@ -944,6 +968,38 @@ body {
   transition: opacity 1.2s, transform 1.2s;
   transition: opacity 1.2s, transform 1.2s, -webkit-transform 1.2s;
 }
+.page img#step3_moon.show_loop {
+  -webkit-animation: step3_moon_animation 4s infinite;
+          animation: step3_moon_animation 4s infinite;
+}
+@-webkit-keyframes step3_moon_animation {
+  0% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    -webkit-filter: brightness(1.2);
+            filter: brightness(1.2);
+  }
+  100% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
+@keyframes step3_moon_animation {
+  0% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    -webkit-filter: brightness(1.2);
+            filter: brightness(1.2);
+  }
+  100% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
 .page img#step3_window.show {
   visibility: visible;
   opacity: 1;
@@ -995,19 +1051,19 @@ body {
     -webkit-transform: scale(1) rotate(0);
             transform: scale(1) rotate(0);
   }
-  52% {
+  54% {
     -webkit-transform: scale(1.4) rotate(5deg);
             transform: scale(1.4) rotate(5deg);
   }
-  54% {
+  58% {
     -webkit-transform: scale(1) rotate(0);
             transform: scale(1) rotate(0);
   }
-  56% {
+  62% {
     -webkit-transform: scale(1.4) rotate(-5deg);
             transform: scale(1.4) rotate(-5deg);
   }
-  58% {
+  66% {
     -webkit-transform: scale(1) rotate(0);
             transform: scale(1) rotate(0);
   }
@@ -1025,19 +1081,19 @@ body {
     -webkit-transform: scale(1) rotate(0);
             transform: scale(1) rotate(0);
   }
-  52% {
+  54% {
     -webkit-transform: scale(1.4) rotate(5deg);
             transform: scale(1.4) rotate(5deg);
   }
-  54% {
+  58% {
     -webkit-transform: scale(1) rotate(0);
             transform: scale(1) rotate(0);
   }
-  56% {
+  62% {
     -webkit-transform: scale(1.4) rotate(-5deg);
             transform: scale(1.4) rotate(-5deg);
   }
-  58% {
+  66% {
     -webkit-transform: scale(1) rotate(0);
             transform: scale(1) rotate(0);
   }
@@ -1279,7 +1335,7 @@ body {
   height: 10%;
   background: url("../images/step2_fang_bottom_la.png") left top repeat-y;
   -webkit-background-size: 100% 100%;
-          background-size: 100%;
+          background-size: 100% 100%;
 }
 .page .mainScene .step2 #step2_fang_bottom_box #step2_fang_bottom_bottom {
   width: 100%;

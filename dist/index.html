@@ -7,7 +7,6 @@
     <!-- <script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
     <link rel="stylesheet" href="./css/pace-theme-loading-bar.tmpl.css" /> -->
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="./css/swiper-3.3.1.min.css"> -->
     <link rel="stylesheet" href="./css/common.css" />
 </head>
 <body>
@@ -16,7 +15,7 @@
             <!--固定元素-->
             <img id="lvdiLogo" class="lvdiLogo" src="./images/logo_lvdi.png" width="43" height="13" />
             <img id="previous" class="previous" src="./images/empty.png" width="22" height="22" />
-            <img id="musicMenu" class="musicMenu" src="./images/empty.png" width="22" height="22" />
+            <img id="musicMenu" class="musicMenu show_loop" src="./images/empty.png" width="22" height="22" />
             <img id="logoBlack" class="logoBlack" src="./images/empty.png" width="50" height="20" />
             <div class="step1" id="step1">
                 <img id="step1_wenzi" class="z1 hidden" src="./images/step1_wenzi.png" width="28%" style="left:5%; bottom:2%;" />
@@ -60,7 +59,7 @@
             <div class="step3" id="step3">
                 <img id="step3_libai" class="z2" src="./images/step2_libai.png" width="40%" style="right:1%; bottom:5%;" />
                 <img id="step3_moon" class="z1 hidden" src="./images/step3_moon.png" width="80%" style="left:-2%; top:1%;" />
-                <img id="step3_window" class="z1 hidden" src="./images/step3_window.svg" width="100%" height="100%" style="left:0; top:0;" />
+                <img id="step3_window" class="z1 hidden" src="./images/step3_window.png" width="100%" height="100%" style="left:0; top:0;" />
                 <img id="step3_text" class="z1 hidden" src="./images/step3_text.svg" width="47%" style="left:14%; bottom:12%;" />
                 <img id="step3_next" class="z2 hidden" src="./images/next.png" width="10%" style="left:45%; bottom:3%;" />
             </div>
@@ -73,7 +72,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+    <audio id="Jaudio" class="media-audio" src="http://game.163.com/weixin/gfxm3_gc/images/bg.mp3" preload loop="loop"></audio >
     <script type="text/javascript" src="js/common.min.js"></script>
 </body>
 </html>

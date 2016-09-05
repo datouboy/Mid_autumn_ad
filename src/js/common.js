@@ -1,8 +1,5 @@
 setTimeout(function(){
     animation_step1();
-    //step1_hide();
-    //animation_step2();
-    //animation_step4();
 },30)
 
 //点击跳转至第二步动画
@@ -199,6 +196,7 @@ function step2_hide(){
 function animation_step3(){
     $("#step3_moon").addClass("show");
     setTimeout(function(){
+        $("#step3_moon").addClass("show_loop");
         $("#step3_window").addClass("show");
         $("#lvdiLogo").addClass("white");
         setTimeout(function(){
@@ -239,3 +237,37 @@ function animation_step4(){
         },1000);
     },200);
 }
+
+$("#previous").click(function(){
+    location.reload();
+})
+
+var audio = document.getElementById("Jaudio");
+var musicPlay = true;
+$("#musicMenu").click(function(){
+    if(musicPlay){
+        audioAutoPlay();
+        $("#musicMenu").addClass("show_loop");
+        musicPlay = false;
+    }else{
+        audio.pause();
+        $("#musicMenu").removeClass("show_loop");
+        musicPlay = true;
+    }
+})
+
+function audioAutoPlay(){
+    var play = function(){
+            audio.play();
+            document.removeEventListener("touchstart",play, false);
+        };
+    audio.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        play();
+    }, false);
+    document.addEventListener('YixinJSBridgeReady', function() {
+        play();
+    }, false);
+    document.addEventListener("touchstart",play, false);
+}
+audioAutoPlay('Jaudio');

@@ -65,6 +65,13 @@ body {
             background: url("../images/music.png") no-repeat;
             background-size: cover;
             z-index: 2000;
+            &.show_loop{
+                animation: musicMenu_animation 5s linear infinite;
+            }
+        }
+        @keyframes musicMenu_animation {
+            0%   {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
         }
 
         &.logoBlack {
@@ -402,6 +409,14 @@ body {
                 transform: translateY(0);
                 transition: opacity 1.2s, transform 1.2s;
             }
+            &.show_loop{
+                animation: step3_moon_animation 4s infinite;
+            }
+        }
+        @keyframes step3_moon_animation {
+            0%   {filter:brightness(1)}
+            50%  {filter:brightness(1.2)}
+            100% {filter:brightness(1)}
         }
         //落地窗出现
         &#step3_window {
@@ -437,10 +452,10 @@ body {
         @keyframes step3_next_animation {
             0%   {transform: scale(1) rotate(0);}
             50%   {transform: scale(1) rotate(0);}
-            52%   {transform: scale(1.4) rotate(5deg);}
-            54%   {transform: scale(1) rotate(0);}
-            56%   {transform: scale(1.4) rotate(-5deg);}
+            54%   {transform: scale(1.4) rotate(5deg);}
             58%   {transform: scale(1) rotate(0);}
+            62%   {transform: scale(1.4) rotate(-5deg);}
+            66%   {transform: scale(1) rotate(0);}
             100% {transform: scale(1) rotate(0);}
         }
 
@@ -589,7 +604,7 @@ body {
                     width: 100%;
                     height: 10%;
                     background: url("../images/step2_fang_bottom_la.png") left top repeat-y;
-                    background-size: 100%;
+                    background-size: 100% 100%;
                 }
                 #step2_fang_bottom_bottom{
                     width: 100%;
