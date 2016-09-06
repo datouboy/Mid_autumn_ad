@@ -43,8 +43,7 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    '<%= config.dist %>/css/common.css': '<%= config.src %>/less/common.less',
-                    '<%= config.dist %>/css/pace-theme-loading-bar.tmpl.css': '<%= config.src %>/less/pace-theme-loading-bar.tmpl.css'
+                    '<%= config.dist %>/css/common.css': '<%= config.src %>/less/common.less'
                 }
             },
             Dest: {
@@ -55,8 +54,7 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    '<%= config.dist %>/css/common.css': '<%= config.src %>/less/common.less',
-                    '<%= config.dist %>/css/pace-theme-loading-bar.tmpl.css': '<%= config.src %>/less/pace-theme-loading-bar.tmpl.css'
+                    '<%= config.dist %>/css/common.css': '<%= config.src %>/less/common.less'
                 }
             }
         },

@@ -1,5 +1,5 @@
 @charset "utf-8";
-/*! mid_autumn_ad 2016-09-05 by ALex */
+/*! mid_autumn_ad 2016-09-06 by ALex */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -53,6 +53,54 @@ body {
     } 
     &.pace-done {
     }*/
+}
+.ladingPage {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  z-index: 2001;
+  left: 0;
+  top: 0;
+  background: #fffb00 url("../images/bg_lading_page.gif") left top repeat;
+  -webkit-background-size: 143.1px 143.1px;
+          background-size: 143.1px;
+}
+.ladingPage .moonBoxMain {
+  width: 100vw;
+  height: 4rem;
+  position: absolute;
+  left: 0;
+  top: 40%;
+}
+.ladingPage .moonBoxMain .moonBox {
+  margin: 0 auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+  background: #fff;
+  border: 3px solid #000;
+  overflow: hidden;
+  position: relative;
+}
+.ladingPage .moonBoxMain .moonBox .moonBoxMark {
+  position: absolute;
+  left: 0.3rem;
+  top: 0.3rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2.5rem;
+  background: #000;
+}
+.ladingPage #ladingNum {
+  position: absolute;
+  color: #000;
+  width: 100vw;
+  font-size: 14px;
+  left: 0;
+  bottom: -50%;
+  text-align: center;
+  font-family: "苹方", "Microsoft Yahei" !important;
 }
 .page {
   width: 100vw;
@@ -118,12 +166,15 @@ body {
 .page img.musicMenu {
   right: 18px;
   top: 22px;
-  background: url("../images/music.png") no-repeat;
+  background: url("../images/music_off.png") no-repeat;
   -webkit-background-size: cover;
           background-size: cover;
   z-index: 2000;
 }
 .page img.musicMenu.show_loop {
+  background: url("../images/music.png") no-repeat;
+  -webkit-background-size: cover;
+          background-size: cover;
   -webkit-animation: musicMenu_animation 5s linear infinite;
           animation: musicMenu_animation 5s linear infinite;
 }
@@ -481,9 +532,77 @@ body {
   transition: opacity 1s, transform 1s;
   transition: opacity 1s, transform 1s, -webkit-transform 1s;
 }
+.page img#step1_fangda.show_loop_start {
+  -webkit-animation: step1_fangda_start_animation 4s 1;
+          animation: step1_fangda_start_animation 4s 1;
+}
 .page img#step1_fangda.show_loop {
   -webkit-animation: step1_fangda_animation 5s infinite;
           animation: step1_fangda_animation 5s infinite;
+}
+@-webkit-keyframes step1_fangda_start_animation {
+  0% {
+    left: 60%;
+    top: 52%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    left: 10%;
+    top: 72%;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  50% {
+    left: 20%;
+    top: 22%;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  75% {
+    left: 55%;
+    top: 15%;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    left: 60%;
+    top: 52%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes step1_fangda_start_animation {
+  0% {
+    left: 60%;
+    top: 52%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    left: 10%;
+    top: 72%;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  50% {
+    left: 20%;
+    top: 22%;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  75% {
+    left: 55%;
+    top: 15%;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    left: 60%;
+    top: 52%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 @-webkit-keyframes step1_fangda_animation {
   0% {
@@ -576,36 +695,108 @@ body {
   transition: opacity 1s, transform 1s, -webkit-transform 1s;
 }
 .page img#step2_text_1 {
-  -webkit-transform: translateY(100%) scale(3);
-      -ms-transform: translateY(100%) scale(3);
-          transform: translateY(100%) scale(3);
+  -webkit-transform: translateY(100%) scale(5) rotate(0deg);
+      -ms-transform: translateY(100%) scale(5) rotate(0deg);
+          transform: translateY(100%) scale(5) rotate(0deg);
 }
 .page img#step2_text_1.show {
   visibility: visible;
   opacity: 1;
-  -webkit-transform: translateY(0) scale(1);
-      -ms-transform: translateY(0) scale(1);
-          transform: translateY(0) scale(1);
+  -webkit-transform: translateY(0) scale(1) rotate(360deg);
+      -ms-transform: translateY(0) scale(1) rotate(360deg);
+          transform: translateY(0) scale(1) rotate(360deg);
   -webkit-transition: opacity 1s, -webkit-transform 1s;
   transition: opacity 1s, -webkit-transform 1s;
   transition: opacity 1s, transform 1s;
   transition: opacity 1s, transform 1s, -webkit-transform 1s;
 }
 .page img#step2_text_2 {
-  -webkit-transform: translateY(100%) scale(3);
-      -ms-transform: translateY(100%) scale(3);
-          transform: translateY(100%) scale(3);
+  -webkit-transform: translateY(100%) scale(5) rotate(0deg);
+      -ms-transform: translateY(100%) scale(5) rotate(0deg);
+          transform: translateY(100%) scale(5) rotate(0deg);
 }
 .page img#step2_text_2.show {
   visibility: visible;
   opacity: 1;
-  -webkit-transform: translateY(0) scale(1);
-      -ms-transform: translateY(0) scale(1);
-          transform: translateY(0) scale(1);
+  -webkit-transform: translateY(0) scale(1) rotate(360deg);
+      -ms-transform: translateY(0) scale(1) rotate(360deg);
+          transform: translateY(0) scale(1) rotate(360deg);
   -webkit-transition: opacity 1s, -webkit-transform 1s;
   transition: opacity 1s, -webkit-transform 1s;
   transition: opacity 1s, transform 1s;
   transition: opacity 1s, transform 1s, -webkit-transform 1s;
+}
+.page img#step2_text_2.show_loop {
+  -webkit-animation: step2_text_2_animation 5s infinite;
+          animation: step2_text_2_animation 5s infinite;
+}
+@-webkit-keyframes step2_text_2_animation {
+  0% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  55% {
+    -webkit-transform: scale(1.5) rotate(5deg);
+            transform: scale(1.5) rotate(5deg);
+  }
+  60% {
+    -webkit-transform: scale(1.5) rotate(-5deg);
+            transform: scale(1.5) rotate(-5deg);
+  }
+  65% {
+    -webkit-transform: scale(1.5) rotate(5deg);
+            transform: scale(1.5) rotate(5deg);
+  }
+  70% {
+    -webkit-transform: scale(1.5) rotate(-5deg);
+            transform: scale(1.5) rotate(-5deg);
+  }
+  75% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+}
+@keyframes step2_text_2_animation {
+  0% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  55% {
+    -webkit-transform: scale(1.5) rotate(5deg);
+            transform: scale(1.5) rotate(5deg);
+  }
+  60% {
+    -webkit-transform: scale(1.5) rotate(-5deg);
+            transform: scale(1.5) rotate(-5deg);
+  }
+  65% {
+    -webkit-transform: scale(1.5) rotate(5deg);
+            transform: scale(1.5) rotate(5deg);
+  }
+  70% {
+    -webkit-transform: scale(1.5) rotate(-5deg);
+            transform: scale(1.5) rotate(-5deg);
+  }
+  75% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
 }
 .page img#step2_text_3 {
   -webkit-transform: translateY(100%) scale(3);
@@ -889,8 +1080,8 @@ body {
           transform: rotate(90deg);
 }
 .page img#drag_up.show_loop {
-  -webkit-animation: drag_up_animation 5s infinite;
-          animation: drag_up_animation 5s infinite;
+  -webkit-animation: drag_up_animation 2s infinite;
+          animation: drag_up_animation 2s infinite;
 }
 @-webkit-keyframes drag_up_animation {
   0% {
@@ -898,24 +1089,8 @@ body {
             transform: scale(1) rotate(90deg);
   }
   50% {
-    -webkit-transform: scale(1) rotate(90deg);
-            transform: scale(1) rotate(90deg);
-  }
-  52% {
-    -webkit-transform: scale(1.2) rotate(90deg);
-            transform: scale(1.2) rotate(90deg);
-  }
-  54% {
-    -webkit-transform: scale(1) rotate(90deg);
-            transform: scale(1) rotate(90deg);
-  }
-  56% {
-    -webkit-transform: scale(1.2) rotate(90deg);
-            transform: scale(1.2) rotate(90deg);
-  }
-  58% {
-    -webkit-transform: scale(1) rotate(90deg);
-            transform: scale(1) rotate(90deg);
+    -webkit-transform: scale(1.5) rotate(90deg);
+            transform: scale(1.5) rotate(90deg);
   }
   100% {
     -webkit-transform: scale(1) rotate(90deg);
@@ -928,24 +1103,8 @@ body {
             transform: scale(1) rotate(90deg);
   }
   50% {
-    -webkit-transform: scale(1) rotate(90deg);
-            transform: scale(1) rotate(90deg);
-  }
-  52% {
-    -webkit-transform: scale(1.2) rotate(90deg);
-            transform: scale(1.2) rotate(90deg);
-  }
-  54% {
-    -webkit-transform: scale(1) rotate(90deg);
-            transform: scale(1) rotate(90deg);
-  }
-  56% {
-    -webkit-transform: scale(1.2) rotate(90deg);
-            transform: scale(1.2) rotate(90deg);
-  }
-  58% {
-    -webkit-transform: scale(1) rotate(90deg);
-            transform: scale(1) rotate(90deg);
+    -webkit-transform: scale(1.5) rotate(90deg);
+            transform: scale(1.5) rotate(90deg);
   }
   100% {
     -webkit-transform: scale(1) rotate(90deg);
@@ -969,35 +1128,47 @@ body {
   transition: opacity 1.2s, transform 1.2s, -webkit-transform 1.2s;
 }
 .page img#step3_moon.show_loop {
-  -webkit-animation: step3_moon_animation 4s infinite;
-          animation: step3_moon_animation 4s infinite;
+  -webkit-animation: step3_moon_animation 5s infinite;
+          animation: step3_moon_animation 5s infinite;
 }
 @-webkit-keyframes step3_moon_animation {
   0% {
     -webkit-filter: brightness(1);
             filter: brightness(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   50% {
-    -webkit-filter: brightness(1.2);
-            filter: brightness(1.2);
+    -webkit-filter: brightness(1.4);
+            filter: brightness(1.4);
+    -webkit-transform: translateY(-3%);
+            transform: translateY(-3%);
   }
   100% {
     -webkit-filter: brightness(1);
             filter: brightness(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 @keyframes step3_moon_animation {
   0% {
     -webkit-filter: brightness(1);
             filter: brightness(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   50% {
-    -webkit-filter: brightness(1.2);
-            filter: brightness(1.2);
+    -webkit-filter: brightness(1.4);
+            filter: brightness(1.4);
+    -webkit-transform: translateY(-3%);
+            transform: translateY(-3%);
   }
   100% {
     -webkit-filter: brightness(1);
             filter: brightness(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 .page img#step3_window.show {
@@ -1022,6 +1193,38 @@ body {
   transition: opacity 1s, transform 1s;
   transition: opacity 1s, transform 1s, -webkit-transform 1s;
 }
+.page img#step3_text.show_loop {
+  -webkit-animation: step3_text_animation 5s infinite;
+          animation: step3_text_animation 5s infinite;
+}
+@-webkit-keyframes step3_text_animation {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-3%);
+            transform: translateY(-3%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes step3_text_animation {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-3%);
+            transform: translateY(-3%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
 .page img#step3_next {
   -webkit-transform: translateY(20%) scale(1.2);
       -ms-transform: translateY(20%) scale(1.2);
@@ -1044,62 +1247,30 @@ body {
 }
 @-webkit-keyframes step3_next_animation {
   0% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   50% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
-  }
-  54% {
-    -webkit-transform: scale(1.4) rotate(5deg);
-            transform: scale(1.4) rotate(5deg);
-  }
-  58% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
-  }
-  62% {
-    -webkit-transform: scale(1.4) rotate(-5deg);
-            transform: scale(1.4) rotate(-5deg);
-  }
-  66% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
   }
   100% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 @keyframes step3_next_animation {
   0% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   50% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
-  }
-  54% {
-    -webkit-transform: scale(1.4) rotate(5deg);
-            transform: scale(1.4) rotate(5deg);
-  }
-  58% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
-  }
-  62% {
-    -webkit-transform: scale(1.4) rotate(-5deg);
-            transform: scale(1.4) rotate(-5deg);
-  }
-  66% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
   }
   100% {
-    -webkit-transform: scale(1) rotate(0);
-            transform: scale(1) rotate(0);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 .page img#step4_moon {
@@ -1117,6 +1288,50 @@ body {
   transition: opacity 1.2s, -webkit-transform 1.2s;
   transition: opacity 1.2s, transform 1.2s;
   transition: opacity 1.2s, transform 1.2s, -webkit-transform 1.2s;
+}
+.page img#step4_moon.show_loop {
+  -webkit-animation: step4_moon_animation 5s infinite;
+          animation: step4_moon_animation 5s infinite;
+}
+@-webkit-keyframes step4_moon_animation {
+  0% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-filter: brightness(1.4);
+            filter: brightness(1.4);
+    -webkit-transform: translateY(-3%);
+            transform: translateY(-3%);
+  }
+  100% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes step4_moon_animation {
+  0% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-filter: brightness(1.4);
+            filter: brightness(1.4);
+    -webkit-transform: translateY(-3%);
+            transform: translateY(-3%);
+  }
+  100% {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 .page img#step4_lvdi_logo {
   -webkit-transform: translateY(20%);

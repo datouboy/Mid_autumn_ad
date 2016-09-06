@@ -13,6 +13,58 @@ body {
     }*/
 }
 
+.ladingPage {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2001;
+    left: 0;
+    top: 0;
+    background: #fffb00 url("../images/bg_lading_page.gif") left top repeat;
+    background-size: 318px * 0.45;
+
+    .moonBoxMain{
+        width: 100vw;
+        height: 4rem;
+        position: absolute;
+        left: 0;
+        top: 40%;
+
+        .moonBox {
+            margin: 0 auto;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 2rem;
+            background: #fff;
+            border: 3px solid #000;
+            overflow: hidden;
+            position: relative;
+
+            .moonBoxMark {
+                position: absolute;
+                left: 0.3rem;
+                top: 0.3rem;
+                width: 5rem;
+                height: 5rem;
+                border-radius: 2.5rem;
+                background: #000;
+            }
+        }
+    }
+
+    #ladingNum {
+        position: absolute;
+        color: #000;
+        width: 100vw;
+        font-size: 14px;
+        left: 0;
+        bottom: -50%;
+        text-align: center;
+        font-family: "苹方","Microsoft Yahei" !important;
+    }
+}
+
 .page {
     width: 100vw;
     height: 100vh;
@@ -62,10 +114,12 @@ body {
         &.musicMenu {
             right: 18px;
             top: 22px;
-            background: url("../images/music.png") no-repeat;
+            background: url("../images/music_off.png") no-repeat;
             background-size: cover;
             z-index: 2000;
             &.show_loop{
+                background: url("../images/music.png") no-repeat;
+                background-size: cover;
                 animation: musicMenu_animation 5s linear infinite;
             }
         }
@@ -236,15 +290,25 @@ body {
                 transform: translateY(0) scale(1);
                 transition: opacity 1s, transform 1s;
             }
+            &.show_loop_start{
+                animation: step1_fangda_start_animation 4s 1;
+            }
             &.show_loop{
                 animation: step1_fangda_animation 5s infinite;
             }
         }
+        @keyframes step1_fangda_start_animation {
+            0%   {left: 60%; top: 52%; transform: scale(1);}
+            25%  {left: 10%; top: 72%; transform: scale(1.5);}
+            50%  {left: 20%; top: 22%; transform: scale(1.5);}
+            75%  {left: 55%; top: 15%; transform: scale(1.5);}
+            100% {left: 60%; top: 52%; transform: scale(1);}
+        }
         @keyframes step1_fangda_animation {
             0%   {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
-            40%   {transform: scale(2); left: 40%; top: 32%; opacity: 0.9;}
+            40%  {transform: scale(2); left: 40%; top: 32%; opacity: 0.9;}
             50%  {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
-            60%   {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
+            60%  {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
             100% {transform: scale(1); left: 60%; top: 52%; opacity: 1;}
         }
         
@@ -272,23 +336,36 @@ body {
         } */
         //文字1
         &#step2_text_1 {
-            transform: translateY(100%) scale(3);
+            transform: translateY(100%) scale(5) rotate(0deg);
             &.show{
                 visibility: visible;
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0) scale(1) rotate(360deg);
                 transition: opacity 1s, transform 1s;
             }
         }
         //文字2
         &#step2_text_2 {
-            transform: translateY(100%) scale(3);
+            transform: translateY(100%) scale(5) rotate(0deg);
             &.show{
                 visibility: visible;
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0) scale(1) rotate(360deg);
                 transition: opacity 1s, transform 1s;
             }
+            &.show_loop{
+                animation: step2_text_2_animation 5s infinite;
+            }
+        }
+        @keyframes step2_text_2_animation {
+            0%   {transform: scale(1) rotate(0deg);}
+            50%  {transform: scale(1) rotate(0deg);}
+            55%  {transform: scale(1.5) rotate(5deg);}
+            60%  {transform: scale(1.5) rotate(-5deg);}
+            65%  {transform: scale(1.5) rotate(5deg);}
+            70%  {transform: scale(1.5) rotate(-5deg);}
+            75%  {transform: scale(1) rotate(0deg);}
+            100% {transform: scale(1) rotate(0deg);}
         }
         //文字3
         &#step2_text_3 {
@@ -386,16 +463,12 @@ body {
         &#drag_up {
             transform: rotate(90deg);
             &.show_loop {
-                animation: drag_up_animation 5s infinite;
+                animation: drag_up_animation 2s infinite;
             }
         }
         @keyframes drag_up_animation {
             0%   {transform: scale(1) rotate(90deg);}
-            50%   {transform: scale(1) rotate(90deg);}
-            52%   {transform: scale(1.2) rotate(90deg);}
-            54%   {transform: scale(1) rotate(90deg);}
-            56%   {transform: scale(1.2) rotate(90deg);}
-            58%   {transform: scale(1) rotate(90deg);}
+            50%   {transform: scale(1.5) rotate(90deg);}
             100% {transform: scale(1) rotate(90deg);}
         }
 
@@ -410,13 +483,13 @@ body {
                 transition: opacity 1.2s, transform 1.2s;
             }
             &.show_loop{
-                animation: step3_moon_animation 4s infinite;
+                animation: step3_moon_animation 5s infinite;
             }
         }
         @keyframes step3_moon_animation {
-            0%   {filter:brightness(1)}
-            50%  {filter:brightness(1.2)}
-            100% {filter:brightness(1)}
+            0%   {filter:brightness(1); transform: translateY(0);}
+            50%  {filter:brightness(1.4); transform: translateY(-3%);}
+            100% {filter:brightness(1); transform: translateY(0);}
         }
         //落地窗出现
         &#step3_window {
@@ -435,6 +508,14 @@ body {
                 transform: translateY(0) scale(1);
                 transition: opacity 1s, transform 1s;
             }
+            &.show_loop{
+                animation: step3_text_animation 5s infinite;
+            }
+        }
+        @keyframes step3_text_animation {
+            0%   {transform: translateY(0);}
+            50%   {transform: translateY(-3%);}
+            100% {transform: translateY(0);}
         }
         //next
         &#step3_next {
@@ -450,13 +531,9 @@ body {
             }
         }
         @keyframes step3_next_animation {
-            0%   {transform: scale(1) rotate(0);}
-            50%   {transform: scale(1) rotate(0);}
-            54%   {transform: scale(1.4) rotate(5deg);}
-            58%   {transform: scale(1) rotate(0);}
-            62%   {transform: scale(1.4) rotate(-5deg);}
-            66%   {transform: scale(1) rotate(0);}
-            100% {transform: scale(1) rotate(0);}
+            0%   {transform: scale(1)}
+            50%  {transform: scale(1.5)}
+            100% {transform: scale(1)}
         }
 
         //step4///////////////////////////////////////////////////////////////////////
@@ -469,6 +546,14 @@ body {
                 transform: translateY(0);
                 transition: opacity 1.2s, transform 1.2s;
             }
+            &.show_loop{
+                animation: step4_moon_animation 5s infinite;
+            }
+        }
+        @keyframes step4_moon_animation {
+            0%   {filter:brightness(1); transform: translateY(0);}
+            50%  {filter:brightness(1.4); transform: translateY(-3%);}
+            100% {filter:brightness(1); transform: translateY(0);}
         }
         //绿地峰尚汇
         &#step4_lvdi_logo {

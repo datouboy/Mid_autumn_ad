@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <title>中秋快乐</title>
     <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <!-- <script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link rel="stylesheet" href="./css/pace-theme-loading-bar.tmpl.css" /> -->
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/common.css" />
+    <div id='wx_pic' style='margin:0 auto; display:none;'>
+        <img src='./images/300.gif' />
+    </div>
 </head>
 <body>
     <div class="page">
+        <div class="ladingPage" id="ladingPage">
+            <div class="moonBoxMain">
+                <div class="moonBox">
+                    <div class="moonBoxMark" id="moonBoxMark">
+                    </div>
+                </div>
+                <div id="ladingNum">LADING 0%</div>
+            </div>
+            <img src="./images/logo.png" width="20%" style="display:block; position: absolute; left:40%; bottom: 3%;">
+        </div>
         <div class="mainScene">
             <!--固定元素-->
             <img id="lvdiLogo" class="lvdiLogo" src="./images/logo_lvdi.png" width="43" height="13" />
@@ -42,7 +53,7 @@
                     <div id="step2_fang_bottom_bottom"></div>
                 </div>
                 <img id="step2_text_1" class="z1 hidden" src="./images/step2_text_1.png" width="80%" style="left:10%; top:5.5%;" />
-                <img id="step2_text_2" class="z1 hidden" src="./images/step2_text_2.png" width="80%" style="left:17%; top:16%;" />
+                <img id="step2_text_2" class="z2 hidden" src="./images/step2_text_2.png" width="80%" style="left:17%; top:16%;" />
                 <img id="step2_text_3" class="z1 hidden" src="./images/step2_text_3.png" width="70%" style="left:5%; top:21%;" />
                 <img id="step2_text_4" class="z1 hidden" src="./images/step2_text_4.png" width="45%" style="left:5%; top:30%;" />
                 <img id="step2_text_5" class="z1 hidden" src="./images/step2_text_5.png" width="45%" style="left:50%; top:32%;" />
@@ -60,7 +71,7 @@
                 <img id="step3_libai" class="z2" src="./images/step2_libai.png" width="40%" style="right:1%; bottom:5%;" />
                 <img id="step3_moon" class="z1 hidden" src="./images/step3_moon.png" width="80%" style="left:-2%; top:1%;" />
                 <img id="step3_window" class="z1 hidden" src="./images/step3_window.png" width="100%" height="100%" style="left:0; top:0;" />
-                <img id="step3_text" class="z1 hidden" src="./images/step3_text.svg" width="47%" style="left:14%; bottom:12%;" />
+                <img id="step3_text" class="z1 hidden" src="./images/step3_text.png" width="47%" style="left:14%; bottom:12%;" />
                 <img id="step3_next" class="z2 hidden" src="./images/next.png" width="10%" style="left:45%; bottom:3%;" />
             </div>
             <div class="step4" id="step4">
@@ -72,7 +83,7 @@
             </div>
         </div>
     </div>
-    <audio id="Jaudio" class="media-audio" src="http://game.163.com/weixin/gfxm3_gc/images/bg.mp3" preload loop="loop"></audio >
+    <audio id="Jaudio" class="media-audio" src="./images/music.mp3" preload loop="loop"></audio>
     <script type="text/javascript" src="js/common.min.js"></script>
 </body>
 </html>

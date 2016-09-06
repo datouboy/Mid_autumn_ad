@@ -1,6 +1,70 @@
-setTimeout(function(){
-    animation_step1();
-},30)
+var musicMp3 = new Audio();
+musicMp3.src = './images/music.mp3';
+musicMp3.load();
+
+//加载图片进度条
+var imgArray = $("img");
+var loadImg = [];
+
+for (var i=0; i<$(imgArray).length; i++){
+    loadImg.push($(imgArray[i]).attr("src"));
+}
+
+var imgsNum = loadImg.length;
+var nowNum = 0;
+var nowPercentage = 0;
+
+var loadingI = 0;
+loadingFun(loadingI);
+function loadingFun(i){
+    var newImg = new Image();
+    newImg.src = loadImg[i];
+
+    newImg.onload = function() {
+        nowNum++;
+        if (nowNum == imgsNum) {
+            startAnimation();
+        };
+        nowPercentage = Math.round(nowNum / imgsNum * 100);
+        $("#moonBoxMark").css({
+            "left": 0.3 + ((4-1.6)*(nowPercentage/100)) + "rem",
+            "top": 0.3 + ((4-1.6)*(nowPercentage/100)) + "rem"
+        })
+        $("#ladingNum").html("LADING " + nowPercentage + '% ...')
+    }
+    loadingI++;
+    if(loadingI < loadImg.length){
+        setTimeout(function(){
+            loadingFun(loadingI);
+        },20);
+    }
+}
+/*for (var i = 0; i < imgsNum; i++) {
+    var newImg = new Image();
+    newImg.src = loadImg[i];
+
+    newImg.onload = function() {
+        nowNum++;
+        if (nowNum == imgsNum) {
+            startAnimation();
+        };
+        nowPercentage = Math.round(nowNum / imgsNum * 100);
+        $("#moonBoxMark").css({
+            "left": 0.3 + ((4-1.6)*(nowPercentage/100)) + "rem",
+            "top": 0.3 + ((4-1.6)*(nowPercentage/100)) + "rem"
+        })
+        $("#ladingNum").html("LADING " + nowPercentage + '% ...')
+    }
+};*/
+
+function startAnimation(){
+    $("#ladingPage").fadeOut(300);
+    setTimeout(function(){
+        animation_step1();
+    },400)
+};
+
+/**/
 
 //点击跳转至第二步动画
 $("#step1_fangda").click(function(){
@@ -18,23 +82,23 @@ var step2_fang_bottom_top_h;
 var step2_fang_bottom_middle_h;
 var step2_fang_bottom_bottom_h;
 
-var step2_text_1_h = $("#step2_text_1").height();
-var step2_text_2_h = $("#step2_text_2").height();
-var step2_text_3_h = $("#step2_text_3").height();
-var step2_text_4_h = $("#step2_text_4").height();
-var step2_text_5_h = $("#step2_text_5").height();
+var step2_text_1_h;
+var step2_text_2_h;
+var step2_text_3_h;
+var step2_text_4_h;
+var step2_text_5_h;
 
-var step2_text_1_t = $("#step2_text_1").css("top").replace(/px/g,"");
-var step2_text_2_t = $("#step2_text_2").css("top").replace(/px/g,"");
-var step2_text_3_t = $("#step2_text_3").css("top").replace(/px/g,"");
-var step2_text_4_t = $("#step2_text_4").css("top").replace(/px/g,"");
-var step2_text_5_t = $("#step2_text_5").css("top").replace(/px/g,"");
+var step2_text_1_t;
+var step2_text_2_t;
+var step2_text_3_t;
+var step2_text_4_t;
+var step2_text_5_t;
 
-$("#step2_text_1").css({"height":step2_text_1_h+"px"});
+/*$("#step2_text_1").css({"height":step2_text_1_h+"px"});
 $("#step2_text_2").css({"height":step2_text_2_h+"px"});
 $("#step2_text_3").css({"height":step2_text_3_h+"px"});
 $("#step2_text_4").css({"height":step2_text_4_h+"px"});
-$("#step2_text_5").css({"height":step2_text_5_h+"px"});
+$("#step2_text_5").css({"height":step2_text_5_h+"px"});*/
 
 var dragUpBox = document.getElementById('drag_up_fun');
 var sumok = true;
@@ -74,14 +138,19 @@ function animation_step1(){
                     setTimeout(function(){
                         $("#step1_dian").addClass("show");
                         setTimeout(function(){
-                            $("#step1_where").addClass("show");
+                            $("#step1_fangda").addClass("show");
                             setTimeout(function(){
-                                $("#step1_where").addClass("show_loop");
-                                $("#step1_fangda").addClass("show");
+                                $("#step1_fangda").addClass("show_loop_start");
                                 setTimeout(function(){
-                                    $("#step1_fangda").addClass("show_loop");
-                                },1000);
+                                    $("#step1_fangda").removeClass("show_loop_start").addClass("show_loop");
+                                },6200);
                             },1000);
+                            setTimeout(function(){
+                                $("#step1_where").addClass("show");
+                                setTimeout(function(){
+                                    $("#step1_where").addClass("show_loop");
+                                },1000);
+                            },4500);
                         },1000);
                     },1000);
                 },700);
@@ -119,6 +188,9 @@ function animation_step2(){
         setTimeout(function(){
             $("#step2_text_2").addClass("show");
             setTimeout(function(){
+                $("#step2_text_2").addClass("show_loop");
+            },2000);
+            setTimeout(function(){
                 $("#step2_text_3").addClass("show");
                 setTimeout(function(){
                     $("#step2_text_4").addClass("show");
@@ -135,6 +207,24 @@ function animation_step2(){
                             $(".drag_up_box").addClass("show");
                             $("#drag_up").addClass("show");
                             setTimeout(function(){
+                                step2_text_1_h = $("#step2_text_1").height();
+                                step2_text_2_h = $("#step2_text_2").height();
+                                step2_text_3_h = $("#step2_text_3").height();
+                                step2_text_4_h = $("#step2_text_4").height();
+                                step2_text_5_h = $("#step2_text_5").height();
+
+                                step2_text_1_t = $("#step2_text_1").css("top").replace(/px/g,"");
+                                step2_text_2_t = $("#step2_text_2").css("top").replace(/px/g,"");
+                                step2_text_3_t = $("#step2_text_3").css("top").replace(/px/g,"");
+                                step2_text_4_t = $("#step2_text_4").css("top").replace(/px/g,"");
+                                step2_text_5_t = $("#step2_text_5").css("top").replace(/px/g,"");
+
+                                $("#step2_text_1").css({"height":step2_text_1_h+"px"});
+                                $("#step2_text_2").css({"height":step2_text_2_h+"px"});
+                                $("#step2_text_3").css({"height":step2_text_3_h+"px"});
+                                $("#step2_text_4").css({"height":step2_text_4_h+"px"});
+                                $("#step2_text_5").css({"height":step2_text_5_h+"px"});
+
                                 $("#drag_up").addClass("show_loop");
                                 $("#drag_up_fun").show();
                             },1000);
@@ -194,13 +284,16 @@ function step2_hide(){
 }
 
 function animation_step3(){
-    $("#step3_moon").addClass("show");
+    $("#step3_window").addClass("show");
     setTimeout(function(){
-        $("#step3_moon").addClass("show_loop");
-        $("#step3_window").addClass("show");
+        $("#step3_moon").addClass("show");
         $("#lvdiLogo").addClass("white");
         setTimeout(function(){
             $("#step3_text").addClass("show");
+            setTimeout(function(){
+                $("#step3_moon").addClass("show_loop");
+                $("#step3_text").addClass("show_loop");
+            },1500);
             setTimeout(function(){
                 $("#step3_next").addClass("show");
                 setTimeout(function(){
@@ -228,6 +321,7 @@ function animation_step4(){
         setTimeout(function(){
             $("#step4_text_1").addClass("show");
             setTimeout(function(){
+                $("#step4_moon").addClass("show_loop");
                 $("#step4_text_2").addClass("show");
                 setTimeout(function(){
                     $("#step4_text_2").addClass("show_loop");
@@ -239,22 +333,37 @@ function animation_step4(){
 }
 
 $("#previous").click(function(){
-    location.reload();
+    //location.reload();
+    //location.replace(location);
+    window.location = '/';
 })
 
 var audio = document.getElementById("Jaudio");
 var musicPlay = true;
 $("#musicMenu").click(function(){
     if(musicPlay){
-        audioAutoPlay();
-        $("#musicMenu").addClass("show_loop");
-        musicPlay = false;
-    }else{
         audio.pause();
         $("#musicMenu").removeClass("show_loop");
+        musicPlay = false;
+    }else{
+        audioAutoPlay();
+        $("#musicMenu").addClass("show_loop");
         musicPlay = true;
     }
 })
+/*var musicOpenMenu = document.getElementById('musicMenu');
+musicOpenMenu.addEventListener('touchstart', function(event) {
+    console.log(1);
+    if(musicPlay){
+        audio.pause();
+        $("#musicMenu").removeClass("show_loop");
+        musicPlay = false;
+    }else{
+        audioAutoPlay();
+        $("#musicMenu").addClass("show_loop");
+        musicPlay = true;
+    }
+}, false);*/
 
 function audioAutoPlay(){
     var play = function(){
