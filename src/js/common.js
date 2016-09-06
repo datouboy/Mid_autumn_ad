@@ -241,8 +241,8 @@ function animation_step2(){
 
 function dragWindows(addY) {
     if(addY < 0){
-        step2_fang_bottom_box_h = step2_fang_bottom_box_h_default + Math.abs(addY*1.2);
-        step2_fang_bottom_middle_h = step2_fang_bottom_middle_h_default + Math.abs(addY*1.2);
+        step2_fang_bottom_box_h = step2_fang_bottom_box_h_default + Math.abs(addY*1.3);
+        step2_fang_bottom_middle_h = step2_fang_bottom_middle_h_default + Math.abs(addY*1.3);
         step2_fang_bottom_box_b = step2_fang_bottom_box_b_default - Math.abs(addY*0.3);
 
         if(Math.abs(addY) > dragPageHeight){
