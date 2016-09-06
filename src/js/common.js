@@ -76,8 +76,10 @@ var pageHeight = document.documentElement.clientHeight;
 var pageWidth = document.documentElement.clientWidth;
 var dragPageHeight = pageHeight*0.25;
 var step2_fang_bottom_box_h_default;
+var step2_fang_bottom_box_b_default;
 var step2_fang_bottom_middle_h_default;
 var step2_fang_bottom_box_h;
+var step2_fang_bottom_box_b;
 var step2_fang_bottom_top_h;
 var step2_fang_bottom_middle_h;
 var step2_fang_bottom_bottom_h;
@@ -172,6 +174,7 @@ function animation_step2(){
     $("#step2_fang_bottom_box").addClass("show");
 
     step2_fang_bottom_box_h_default = $("#step2_fang_bottom_box").height();
+    step2_fang_bottom_box_b_default = $("#step2_fang_bottom_box").css("bottom").replace(/px/g,"");
     step2_fang_bottom_middle_h_default = $("#step2_fang_bottom_middle").height();
     step2_fang_bottom_box_h = $("#step2_fang_bottom_box").height();
     step2_fang_bottom_top_h = $("#step2_fang_bottom_top").height();
@@ -238,8 +241,9 @@ function animation_step2(){
 
 function dragWindows(addY) {
     if(addY < 0){
-        step2_fang_bottom_box_h = step2_fang_bottom_box_h_default + Math.abs(addY);
-        step2_fang_bottom_middle_h = step2_fang_bottom_middle_h_default + Math.abs(addY);
+        step2_fang_bottom_box_h = step2_fang_bottom_box_h_default + Math.abs(addY*1.2);
+        step2_fang_bottom_middle_h = step2_fang_bottom_middle_h_default + Math.abs(addY*1.2);
+        step2_fang_bottom_box_b = step2_fang_bottom_box_b_default - Math.abs(addY*0.3);
 
         if(Math.abs(addY) > dragPageHeight){
             step2_hide();
@@ -253,7 +257,10 @@ function dragWindows(addY) {
         step2_fang_bottom_middle_h = step2_fang_bottom_middle_h <= step2_fang_bottom_middle_h_default ? step2_fang_bottom_middle_h_default : step2_fang_bottom_middle_h;
     }
 
-    $("#step2_fang_bottom_box").css({"height":step2_fang_bottom_box_h + "px"});
+    $("#step2_fang_bottom_box").css({
+        "height": step2_fang_bottom_box_h + "px",
+        "bottom": step2_fang_bottom_box_b + "px"
+    });
     $("#step2_fang_bottom_middle").css({"height":step2_fang_bottom_middle_h + "px"});
 }
 

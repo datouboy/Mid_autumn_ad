@@ -474,46 +474,70 @@ body {
 }
 @-webkit-keyframes step1_where_animation {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  40% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
   }
   50% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  55% {
+    -webkit-transform: scale(1.3) rotate(5deg);
+            transform: scale(1.3) rotate(5deg);
   }
   60% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(1.3) rotate(-5deg);
+            transform: scale(1.3) rotate(-5deg);
+  }
+  65% {
+    -webkit-transform: scale(1.3) rotate(5deg);
+            transform: scale(1.3) rotate(5deg);
+  }
+  70% {
+    -webkit-transform: scale(1.3) rotate(-5deg);
+            transform: scale(1.3) rotate(-5deg);
+  }
+  75% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
   }
   100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
   }
 }
 @keyframes step1_where_animation {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  40% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
   }
   50% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  55% {
+    -webkit-transform: scale(1.3) rotate(5deg);
+            transform: scale(1.3) rotate(5deg);
   }
   60% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(1.3) rotate(-5deg);
+            transform: scale(1.3) rotate(-5deg);
+  }
+  65% {
+    -webkit-transform: scale(1.3) rotate(5deg);
+            transform: scale(1.3) rotate(5deg);
+  }
+  70% {
+    -webkit-transform: scale(1.3) rotate(-5deg);
+            transform: scale(1.3) rotate(-5deg);
+  }
+  75% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
   }
   100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
   }
 }
 .page img#step1_fangda {
