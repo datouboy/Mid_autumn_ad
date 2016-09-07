@@ -74,7 +74,7 @@ $("#step1_fangda").click(function(){
 //第二部，拖动窗口后，跳转至第三部动画
 var pageHeight = document.documentElement.clientHeight;
 var pageWidth = document.documentElement.clientWidth;
-var dragPageHeight = pageHeight*0.25;
+var dragPageHeight = pageHeight*0.35;
 var step2_fang_bottom_box_h_default;
 var step2_fang_bottom_box_b_default;
 var step2_fang_bottom_middle_h_default;
@@ -95,6 +95,12 @@ var step2_text_2_t;
 var step2_text_3_t;
 var step2_text_4_t;
 var step2_text_5_t;
+
+var step2_text_1_l;
+var step2_text_2_l;
+var step2_text_3_l;
+var step2_text_4_l;
+var step2_text_5_l;
 
 /*$("#step2_text_1").css({"height":step2_text_1_h+"px"});
 $("#step2_text_2").css({"height":step2_text_2_h+"px"});
@@ -145,14 +151,14 @@ function animation_step1(){
                                 $("#step1_fangda").addClass("show_loop_start");
                                 setTimeout(function(){
                                     $("#step1_fangda").removeClass("show_loop_start").addClass("show_loop");
-                                },6200);
+                                },5200);
                             },1000);
                             setTimeout(function(){
                                 $("#step1_where").addClass("show");
                                 setTimeout(function(){
                                     $("#step1_where").addClass("show_loop");
                                 },1000);
-                            },4500);
+                            },3500);
                         },1000);
                     },1000);
                 },700);
@@ -222,6 +228,12 @@ function animation_step2(){
                                 step2_text_4_t = $("#step2_text_4").css("top").replace(/px/g,"");
                                 step2_text_5_t = $("#step2_text_5").css("top").replace(/px/g,"");
 
+                                step2_text_1_l = $("#step2_text_1").css("left").replace(/px/g,"");
+                                step2_text_2_l = $("#step2_text_2").css("left").replace(/px/g,"");
+                                step2_text_3_l = $("#step2_text_3").css("left").replace(/px/g,"");
+                                step2_text_4_l = $("#step2_text_4").css("left").replace(/px/g,"");
+                                step2_text_5_l = $("#step2_text_5").css("left").replace(/px/g,"");
+
                                 $("#step2_text_1").css({"height":step2_text_1_h+"px"});
                                 $("#step2_text_2").css({"height":step2_text_2_h+"px"});
                                 $("#step2_text_3").css({"height":step2_text_3_h+"px"});
@@ -239,14 +251,23 @@ function animation_step2(){
     },500);
 }
 
+var step2_hide_state = true;
 function dragWindows(addY) {
     if(addY < 0){
-        step2_fang_bottom_box_h = step2_fang_bottom_box_h_default + Math.abs(addY*1.3);
-        step2_fang_bottom_middle_h = step2_fang_bottom_middle_h_default + Math.abs(addY*1.3);
-        step2_fang_bottom_box_b = step2_fang_bottom_box_b_default - Math.abs(addY*0.3);
+        step2_fang_bottom_box_h = step2_fang_bottom_box_h_default + Math.abs(addY*1.5);
+        step2_fang_bottom_middle_h = step2_fang_bottom_middle_h_default + Math.abs(addY*1.5);
+        //Iphone 在某些情况下，认出的是百分比，不是PX值
+        if(step2_fang_bottom_box_b_default.search(/%/g) > 0){
+            step2_fang_bottom_box_b = (Math.ceil(step2_fang_bottom_box_b_default.replace(/%/g,"")) - Math.abs(addY*0.09)) + "%";
+        }else{
+            step2_fang_bottom_box_b = (step2_fang_bottom_box_b_default - Math.abs(addY*0.5)) + "px";
+        }
 
         if(Math.abs(addY) > dragPageHeight){
-            step2_hide();
+            if(step2_hide_state){
+                step2_hide();
+                step2_hide_state = false;
+            }
             return;
         }
         step2_text_animation(Math.abs(addY)/dragPageHeight);
@@ -258,28 +279,62 @@ function dragWindows(addY) {
     }
 
     $("#step2_fang_bottom_box").css({
-        "height": step2_fang_bottom_box_h + "px",
-        "bottom": step2_fang_bottom_box_b + "px"
+        "height": step2_fang_bottom_box_h + "px" ,
+        "bottom": step2_fang_bottom_box_b
     });
+
     $("#step2_fang_bottom_middle").css({"height":step2_fang_bottom_middle_h + "px"});
 }
 
 function step2_text_animation(addY){
-    var xishu = 0.5;
-    $("#step2_text_1").css({"height":(step2_text_1_h - step2_text_1_h*addY*xishu) +"px" , "top":(step2_text_1_t - step2_text_1_t*addY*xishu) + "px"});
-    $("#step2_text_2").css({"height":(step2_text_2_h - step2_text_2_h*addY*xishu) +"px" , "top":(step2_text_2_t - step2_text_2_t*addY*xishu) + "px"});
-    $("#step2_text_3").css({"height":(step2_text_3_h - step2_text_3_h*addY*xishu) +"px" , "top":(step2_text_3_t - step2_text_3_t*addY*xishu) + "px"});
-    $("#step2_text_4").css({"height":(step2_text_4_h - step2_text_4_h*addY*xishu) +"px" , "top":(step2_text_4_t - step2_text_4_t*addY*xishu) + "px"});
-    $("#step2_text_5").css({"height":(step2_text_5_h - step2_text_5_h*addY*xishu) +"px" , "top":(step2_text_5_t - step2_text_5_t*addY*xishu) + "px"});
+    var xishu = 0.7;
+    $("#step2_text_1").css({
+        "height":(step2_text_1_h - step2_text_1_h*addY*xishu) +"px" ,
+        "top":(step2_text_1_t - step2_text_1_t*addY*xishu) + "px",
+        "left":(step2_text_1_l - step2_text_1_l*addY) + "px"
+    });
+    $("#step2_text_2").css({
+        "height":(step2_text_2_h - step2_text_2_h*addY*xishu) +"px" ,
+        "top":(step2_text_2_t - step2_text_2_t*addY*xishu) + "px",
+        "left":(step2_text_2_l - step2_text_2_l*addY) + "px"
+    });
+    $("#step2_text_3").css({
+        "height":(step2_text_3_h - step2_text_3_h*addY*xishu) +"px" ,
+        "top":(step2_text_3_t - step2_text_3_t*addY*xishu) + "px",
+        "left":(step2_text_3_l - step2_text_3_l*addY) + "px"
+    });
+    $("#step2_text_4").css({
+        "height":(step2_text_4_h - step2_text_4_h*addY*xishu) +"px" ,
+        "top":(step2_text_4_t - step2_text_4_t*addY*xishu) + "px",
+        "left":(step2_text_4_l - step2_text_4_l*addY) + "px"
+    });
+    $("#step2_text_5").css({
+        "height":(step2_text_5_h - step2_text_5_h*addY*xishu) +"px" ,
+        "top":(step2_text_5_t - step2_text_5_t*addY*xishu) + "px",
+        "left":(step2_text_5_l - step2_text_5_l*addY*0.2) + "px"
+    });
 }
 
 function step2_hide(){
     $("drag_up_fun").hide();
-    $("#step2_text_1").animate({left: '-'+pageWidth}, 300);
+    $("#step2_fang_top").animate({"top": '-'+(pageHeight*0.3)}, 600);
+    $("#step2_fang_bottom_box").animate({
+        "height": ($("#step2_fang_bottom_box").height() + pageHeight*0.3) + "px",
+        "bottom": (Math.ceil($("#step2_fang_bottom_box").css("bottom").replace(/px/g,"")) - pageHeight*0.05) + "px"
+    }, 600);
+    $("#step2_fang_bottom_middle").animate({
+        "height": ($("#step2_fang_bottom_middle").height() + pageHeight*0.3) + "px"
+    }, 600);
+    animate_alex("step2_text_1", $("#step2_text_1").css("left").replace(/px/g,""));
+    animate_alex("step2_text_2", $("#step2_text_2").css("left").replace(/px/g,""));
+    animate_alex("step2_text_3", $("#step2_text_3").css("left").replace(/px/g,""));
+    animate_alex("step2_text_4", $("#step2_text_4").css("left").replace(/px/g,""));
+    animate_alex("step2_text_5", $("#step2_text_5").css("left").replace(/px/g,""));
+    /*$("#step2_text_1").animate({left: '-'+pageWidth}, 300);
     $("#step2_text_2").animate({left: '-'+pageWidth}, 300);
     $("#step2_text_3").animate({left: '-'+pageWidth}, 300);
     $("#step2_text_4").animate({left: '-'+pageWidth}, 300);
-    $("#step2_text_5").animate({left: '-'+pageWidth}, 300);
+    $("#step2_text_5").animate({left: '-'+pageWidth}, 300);*/
     setTimeout(function(){
         $("#step3").show();
         $("#step2").fadeOut();
@@ -287,7 +342,24 @@ function step2_hide(){
             $("#step2").addClass("hide");
             animation_step3();
         },500);
-    },500);
+    },700);
+}
+
+function animate_alex(id,b){
+    //console.log(Math.ceil(b));
+    var newB = Math.ceil(b);
+    var leftNum;
+    var t=0, c=-pageWidth; d=70;
+    var setRun = setInterval(function(){
+        if(t<d){
+            t++;
+            //t => time(初始记步次数)   b => begin(初始位置)   c => change(变化量)   d => duration(持续次数)
+            leftNum = Math.ceil(Tween.Back.easeIn(t,newB,c,d));
+            $("#"+id).css({"left": leftNum+"px"});
+        }else{
+            clearInterval(setRun);
+        }
+    }, 10);
 }
 
 function animation_step3(){
@@ -387,3 +459,12 @@ function audioAutoPlay(){
     document.addEventListener("touchstart",play, false);
 }
 audioAutoPlay('Jaudio');
+
+var Tween = {
+    Back: {
+        easeIn: function(t,b,c,d,s){
+            if (s == undefined) s = 1.70158;
+            return c*(t/=d)*t*((s+1)*t - s) + b;
+        }
+    }
+};
