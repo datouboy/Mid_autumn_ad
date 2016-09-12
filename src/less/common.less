@@ -557,6 +557,29 @@ body {
             50%  {filter:brightness(1.4); transform: translateY(-3%);}
             100% {filter:brightness(1); transform: translateY(0);}
         }
+        //嫦娥
+        &#step4_chang_e {
+            transform:scaleX(-1) translateY(-20%);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: scaleX(-1) translateY(0);
+                transition: opacity 1.2s, transform 1.2s;
+            }
+            &.show_loop{
+                animation: step4_chang_e_animation 5s infinite;
+            }
+            &.out{
+                opacity: 0;
+                transform: scaleX(-1);
+                transition: opacity .8s;
+            }
+        }
+        @keyframes step4_chang_e_animation {
+            0%   {transform: scaleX(-1) translateY(0);}
+            50%  {transform: scaleX(-1) translateY(6%);}
+            100% {transform: scaleX(-1) translateY(0);}
+        }
         //绿地峰尚汇
         &#step4_lvdi_logo {
             transform: translateY(20%);
@@ -576,6 +599,10 @@ body {
                 transform: translateY(0) scale(1);
                 transition: opacity .9s, transform .9s;
             }
+            &.out{
+                opacity: 0;
+                transition: opacity .8s;
+            }
         }
         //文字2
         &#step4_text_2{
@@ -589,6 +616,10 @@ body {
             &.show_loop{
                 animation: step4_text_2_animation 5s infinite;
             }
+            &.out{
+                opacity: 0;
+                transition: opacity .8s;
+            }
         }
         @keyframes step4_text_2_animation {
             0%   {transform: scale(1) rotate(0) translateY(0);}
@@ -599,13 +630,111 @@ body {
             80%   {transform: scale(1) rotate(0) translateY(0);}
             100% {transform: scale(1) rotate(0) translateY(0);}
         }
-        //二维码
-        &#step4_qrcode{
-            transform: translateY(10%);
+        //next
+        &#step4_next {
+            transform: translateY(20%) scale(1.2);
             &.show{
                 visibility: visible;
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
+                transition: opacity 1s, transform 1s;
+            }
+            &.show_loop{
+                animation: step4_next_animation 5s infinite;
+            }
+            &.out{
+                opacity: 0;
+                transition: opacity .8s;
+            }
+        }
+        @keyframes step4_next_animation {
+            0%   {transform: scale(1)}
+            50%  {transform: scale(1.5)}
+            100% {transform: scale(1)}
+        }
+        //step5///////////////////////////////////////////////////////////////////////
+        //漂浮物
+        &#step5_sui {
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transition: opacity .8s;
+            }
+            &.show_loop{
+                animation: step5_sui_animation 5s infinite;
+            }
+        }
+        @keyframes step5_sui_animation {
+            0%   {top:20%;}
+            50%  {top:22%;}
+            100% {top:20%;}
+        }
+        //漂浮物
+        &#step5_yun {
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transition: opacity .8s;
+            }
+            &.show_loop{
+                animation: step5_yun_animation 5s infinite;
+            }
+        }
+        @keyframes step5_yun_animation {
+            0%   {top:20%;}
+            50%  {top:18%;}
+            100% {top:20%;}
+        }
+        //
+        &#step5_60 {
+            transform: translateY(100%) scale(5) rotate(0deg);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(360deg);
+                transition: opacity 1s, transform 1s;
+            }
+            &.show_loop{
+                animation: step5_60_animation 5s infinite;
+            }
+        }
+        @keyframes step5_60_animation {
+            0%   {transform: scale(1) rotate(0deg);}
+            50%  {transform: scale(1) rotate(0deg);}
+            55%  {transform: scale(3) rotate(5deg);}
+            60%  {transform: scale(3) rotate(-5deg);}
+            65%  {transform: scale(3) rotate(5deg);}
+            70%  {transform: scale(3) rotate(-5deg);}
+            75%  {transform: scale(1) rotate(0deg);}
+            100% {transform: scale(1) rotate(0deg);}
+        }
+        //
+        &#step5_60_2 {
+            transform: translateY(100%) scale(5) rotate(0deg);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(360deg);
+                transition: opacity 1s, transform 1s;
+            }
+        }
+        //
+        &#step5_text{
+            transform: translateY(20%) scale(2);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                transition: opacity .9s, transform .9s;
+            }
+        }
+        //
+        &#step5_qrcode{
+            transform: translateY(20%) scale(1.5);
+            &.show{
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0) scale(1);
                 transition: opacity .9s, transform .9s;
             }
         }
@@ -717,6 +846,19 @@ body {
         }
 
         .step4 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            &.hide {
+                height: 0;
+            }
+        }
+
+        .step5 {
             position: absolute;
             left: 0;
             top: 0;

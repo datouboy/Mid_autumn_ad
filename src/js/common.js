@@ -129,6 +129,10 @@ $("#step3_next").click(function(){
     step3_hide();
 })
 
+$("#step4_next").click(function(){
+    step4_hide();
+})
+
 function animation_step1(){
     $("#step1_chang_e").addClass("show");
     $("#step1_chang_e_node").addClass("show");
@@ -393,22 +397,61 @@ function step3_hide(){
 
 function animation_step4(){
     $("#lvdiLogo").removeClass("white");
-    $("#logoBlack").fadeOut(300);
     $("#step4_lvdi_logo").addClass("show");
     setTimeout(function(){
         $("#step4_moon").addClass("show");
+        $("#step4_chang_e").addClass("show");
         setTimeout(function(){
             $("#step4_text_1").addClass("show");
             setTimeout(function(){
                 $("#step4_moon").addClass("show_loop");
+                $("#step4_chang_e").addClass("show_loop");
                 $("#step4_text_2").addClass("show");
                 setTimeout(function(){
                     $("#step4_text_2").addClass("show_loop");
-                    $("#step4_qrcode").addClass("show");
+                    $("#step4_next").addClass("show");
+                    setTimeout(function(){
+                        $("#step4_next").addClass("show_loop");
+                    },1200);
                 },1000);
             },300);
         },1000);
     },200);
+}
+
+function step4_hide(){
+    $("#step4_chang_e").removeClass("show_loop").addClass("out");
+    $("#step4_text_1").addClass("out");
+    $("#step4_text_2").removeClass("show_loop").addClass("out");
+    $("#step4_next").removeClass("show_loop").addClass("out");
+    $("#step4_moon").animate({"top":"16%"},1000);
+    setTimeout(function(){
+        $("#step4_chang_e").hide();
+        $("#step4_text_1").hide();
+        $("#step4_text_2").hide();
+        $("#step4_next").hide();
+        animation_step5();
+    },1000);
+}
+
+function animation_step5(){
+    $("#logoBlack").fadeOut(300);
+    $("#step5_yun").addClass("show");
+    $("#step5_sui").addClass("show");
+    setTimeout(function(){
+        $("#step5_yun").addClass("show_loop");
+        $("#step5_sui").addClass("show_loop");
+        $("#step5_60").addClass("show");
+        $("#step5_60_2").addClass("show");
+        setTimeout(function(){
+            $("#step5_60").addClass("show_loop");
+            $("#step5_60_2").addClass("show_loop");
+            $("#step5_text").addClass("show");
+            setTimeout(function(){
+                $("#step5_qrcode").addClass("show");
+            },1000);
+        },1200);
+    },1000);
 }
 
 $("#previous").click(function(){
